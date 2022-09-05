@@ -1,3 +1,4 @@
+import 'package:ecommerce/views/signin_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         accentColor: const Color(0xFFA9A6EA),
         backgroundColor: Color(0xFFF1EFF6),
       ),
-      home: Text(''),
+      home: SigninPage(),
     );
   }
 }
+
