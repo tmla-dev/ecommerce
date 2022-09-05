@@ -1,8 +1,18 @@
+import 'package:ecommerce/view_models/auth_provider.dart';
+import 'package:ecommerce/views/home_page.dart';
 import 'package:ecommerce/views/signin_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (_) => AuthProvider(),
+      ),
+    ],
+    child: MyApp(),
+  ),);
 }
 
 class MyApp extends StatelessWidget {
@@ -11,14 +21,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    bool isAuth = context.watch<AuthProvider>().isAuth;
+    context.read<AuthProvider>().checkLogin();
+
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Ecommerce',
       theme: ThemeData(
         primaryColor: const Color(0xFF6962E7),
         accentColor: const Color(0xFFA9A6EA),
-        backgroundColor: Color(0xFFF1EFF6),
+        backgroundColor: const Color(0xFFF1EFF6),
       ),
-      home: SigninPage(),
+      home: isAuth ? HomePage():SigninPage(),
     );
   }
 }

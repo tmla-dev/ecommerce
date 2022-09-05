@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:provider/provider.dart';
 
+import '../view_models/auth_provider.dart';
+
 class SigninPage extends StatefulWidget {
   @override
   _SigninPageState createState() => _SigninPageState();
@@ -115,8 +117,7 @@ class _SigninPageState extends State<SigninPage> {
                     onTap: () {
                       if (formkey.currentState!.validate()) {
                         FocusManager.instance.primaryFocus?.unfocus();
-                        //Todo: Add login code here
-
+                        context.read<AuthProvider>().loginUser(usernameController.text, passwordConroller.text);
                       } else {
                         print('validation failed');
                       }
