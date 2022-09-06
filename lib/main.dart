@@ -3,12 +3,16 @@ import 'package:ecommerce/views/home_page.dart';
 import 'package:ecommerce/views/signin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ecommerce/view_models/product_provider.dart';
 
 void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
         create: (_) => AuthProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (_) => ProductProvider(),
       ),
     ],
     child: MyApp(),

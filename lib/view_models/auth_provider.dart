@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,6 +26,7 @@ class AuthProvider with ChangeNotifier{
 
   ///User login function
   loginUser(String username, String password) async {
+    //prepare api call
     var headers = {
       'accept': '*/*',
       'Content-Type': 'application/json',
@@ -34,6 +34,7 @@ class AuthProvider with ChangeNotifier{
     var data = '{"username":"$username","password":"$password"}';
     var url = Uri.parse(baseUrl+'auth/login');
     var res = await http.post(url, headers: headers, body: data);
+    //check api response status
     if (res.statusCode == 200) {
       var data = jsonDecode(res.body.toString());
       final prefs = await SharedPreferences.getInstance();
