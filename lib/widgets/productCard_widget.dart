@@ -66,7 +66,7 @@ class ProductCard extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          //add to cart
+                          //add to cart with default quantity 1
                           Provider.of<CartProvider>(context, listen: false).addCart(productList[index],1);
                         },
                         child: Container(

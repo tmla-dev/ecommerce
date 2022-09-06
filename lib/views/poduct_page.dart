@@ -15,6 +15,7 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
+  int productQuantity = 5;
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
@@ -32,7 +33,7 @@ class _ProductPageState extends State<ProductPage> {
                       Center(child: Icon(Icons.image)),
                 ),
 
-                ///product name
+                ///product name and quantity
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Row(
@@ -55,12 +56,17 @@ class _ProductPageState extends State<ProductPage> {
                             ///reduce quantity
                             GestureDetector(
                               onTap: () {
-                                ///toDo: decrease quantity
+                                //decrease product quantity
+                                if(productQuantity==1){
+                                  //you can't decrease to 0
+                                }else{
+                                  productQuantity-=1;
+                                }
+                                setState(() {
+
+                                });
                               },
                               child: Container(
-                                // decoration: BoxDecoration(
-                                //     shape: BoxShape.circle,
-                                //     color: Colors.blue),
                                 width: 35,
                                 height: 35,
                                 child: Center(
@@ -82,7 +88,7 @@ class _ProductPageState extends State<ProductPage> {
                               // color: Colors.grey.withOpacity(0.3),
                               child: Center(
                                 child: Text(
-                                  '1',
+                                  '${productQuantity}',
                                   style: TextStyle(
                                       color: Theme.of(context).backgroundColor,
                                       fontSize: 20),
@@ -93,7 +99,11 @@ class _ProductPageState extends State<ProductPage> {
                             ///add more quantity
                             GestureDetector(
                               onTap: () {
-                                ///toDo: increase
+                                //increase product quantity
+                                productQuantity+=1;
+                                setState(() {
+
+                                });
                               },
                               child: Container(
                                 // decoration: BoxDecoration(
@@ -189,8 +199,9 @@ class _ProductPageState extends State<ProductPage> {
                 Spacer(),
                 GestureDetector(
                   onTap: () async {
+                    //add to cart with desired quantity
                     Provider.of<CartProvider>(context, listen: false)
-                        .addCart(widget.product, 1);
+                        .addCart(widget.product, productQuantity);
                   },
                   child: Container(
                     height: 50,
