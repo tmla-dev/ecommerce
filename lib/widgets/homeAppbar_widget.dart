@@ -1,5 +1,8 @@
+import 'package:ecommerce/view_models/product_provider.dart';
+import 'package:ecommerce/views/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
+import 'package:provider/provider.dart';
 
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
@@ -7,8 +10,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
 
   @override
   Widget build(BuildContext context) {
+    bool _isElevation = context.watch<ProductProvider>().isElevation;
     return  AppBar(
-      elevation: 0,
+      elevation: _isElevation?2:0,
       backgroundColor: Colors.white,
       leading: Icon(
         Icons.sort,
@@ -25,9 +29,18 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
               onTap: () {
                 //toDo: Go to Cart Page
               },
-              child: Icon(
-                Icons.shopping_cart_outlined,
-                color: Colors.black87,
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CartPage(),),
+                  );
+                },
+                child: Icon(
+                  Icons.shopping_cart_outlined,
+                  color: Colors.black87,
+                ),
               ),
             ),
           ),
@@ -39,5 +52,5 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(60);
+  Size get preferredSize => Size.fromHeight(50);
 }

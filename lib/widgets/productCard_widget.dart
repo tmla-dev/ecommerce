@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:ecommerce/models/product_model.dart';
+import 'package:ecommerce/view_models/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -18,7 +20,7 @@ class ProductCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).backgroundColor,//Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
@@ -55,7 +57,8 @@ class ProductCard extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        //toDo: Add to Cart function
+                        //add to cart
+                        Provider.of<CartProvider>(context, listen: false).addCart(productList[index],1);
                       },
                       child: Container(
                         width: 25,

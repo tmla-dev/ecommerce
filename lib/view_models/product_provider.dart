@@ -10,9 +10,17 @@ class ProductProvider with ChangeNotifier{
   int pageNumber = 0;
   List<ProductModel> _products = [];
   bool _isLoadMore = true;
+  bool _isElevation = false;
 
   bool get isLoadMore => _isLoadMore;
   List<ProductModel> get products => _products;
+  bool get isElevation => _isElevation;
+
+  ///change home appbar elevation
+  changeElevation(bool value){
+    _isElevation = value;
+    ChangeNotifier();
+  }
 
   ///get products function
   getProuctList() async {
