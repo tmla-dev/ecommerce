@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
     context.read<AuthProvider>().checkLogin();
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Ecommerce',
       theme: ThemeData(
         primaryColor: const Color(0xFF6962E7),

@@ -27,6 +27,8 @@ dev_dependencies:
   http: any
   shared_preferences: any
   fluttertoast: ^8.0.8
+  badges: ^2.0.3
+  cached_network_image: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
