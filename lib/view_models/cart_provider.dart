@@ -40,10 +40,14 @@ class CartProvider with ChangeNotifier{
     };
     //encode Map to JSON
     var body = json.encode(data);
+    
+    //get user token
+    final prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString('token');
 
     var headers = {
       'accept': '*/*',
-      'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YW1sYSIsImF1dGgiOiJST0xFX1VTRVIiLCJpYXQiOjE2NjI0ODM3MjcsImV4cCI6MTY2MzA4ODUyN30.rznZ29IPilEgHzT8jebij063aq8LgorPF5XxErv47tmRXrmuvFSL3SBwzjxz2WcSlmUm0Qn3hfavmcegsBlUtw',
+      'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
     };
     var url = Uri.parse(baseUrl+'orders');
