@@ -10,8 +10,8 @@ class ProductProvider with ChangeNotifier{
   int pageNumber = 0;
   List<ProductModel> _products = [];
   bool _isLoadMore = true;
-  bool get isLoadMore => _isLoadMore;
 
+  bool get isLoadMore => _isLoadMore;
   List<ProductModel> get products => _products;
 
   ///get products function
