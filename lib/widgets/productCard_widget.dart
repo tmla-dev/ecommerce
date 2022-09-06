@@ -61,7 +61,7 @@ class ProductCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '2000',
+                        '${productList[index].amount}',
                         style: TextStyle(),
                       ),
                       GestureDetector(

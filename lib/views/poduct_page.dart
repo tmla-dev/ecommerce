@@ -15,7 +15,7 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  int productQuantity = 5;
+  int productQuantity = 1;
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
@@ -57,14 +57,12 @@ class _ProductPageState extends State<ProductPage> {
                             GestureDetector(
                               onTap: () {
                                 //decrease product quantity
-                                if(productQuantity==1){
+                                if (productQuantity == 1) {
                                   //you can't decrease to 0
-                                }else{
-                                  productQuantity-=1;
+                                } else {
+                                  productQuantity -= 1;
                                 }
-                                setState(() {
-
-                                });
+                                setState(() {});
                               },
                               child: Container(
                                 width: 35,
@@ -100,10 +98,8 @@ class _ProductPageState extends State<ProductPage> {
                             GestureDetector(
                               onTap: () {
                                 //increase product quantity
-                                productQuantity+=1;
-                                setState(() {
-
-                                });
+                                productQuantity += 1;
+                                setState(() {});
                               },
                               child: Container(
                                 // decoration: BoxDecoration(
@@ -204,9 +200,14 @@ class _ProductPageState extends State<ProductPage> {
                         .addCart(widget.product, productQuantity);
                   },
                   child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5),
+                      ),
+                    ),
                     height: 50,
                     width: deviceWidth / 2,
-                    color: Theme.of(context).primaryColor,
                     child: Center(
                         child: Text(
                       'Add to Cart',
