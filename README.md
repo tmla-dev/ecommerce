@@ -1,16 +1,51 @@
-# ecommerce
+# eCommerce
+## _Buy anything, anytime_
 
-Ecommerce Flutter Application
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+eCommerce is an Ecommerce application developed with Flutter.
 
-A few resources to get you started if this is your first Flutter project:
+- Clean Code
+- Attractive UI
+- MVVM
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Features
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Login using username and passord
+- Browse products on home page
+- Add item to Cart
+- Checkout Cart
+
+eCommerce use MVVM architecture to structure code neately and effieciently.
+
+## Packages
+
+eCommerce use a number of packages to run smoothly:
+
+- change_app_package_name : to change package name of the project!
+- provider: to handle state of application
+- form_field_validator: to Validate the form easily
+- http: for Network calls
+- shared_preferences: to store user token and check Authentication
+- fluttertoast: to show user popup message
+- badges: to show if there are items in Cart
+- cached_network_image: to cached Network Images for efficiency
+
+
+
+
+## Installation
+
+eCommerce requires [Flutter](https://flutter.dev/) v2+ to run.
+
+download repository. Run 
+
+```sh
+flutter packages get
+```
+
+After that, you can build apk using...
+
+```sh
+flutter build apk
+```
